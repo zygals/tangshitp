@@ -75,9 +75,8 @@ class ArticleController extends BaseController {
         $data = $request->param();
 
         $row_ = $this->findById($data['id'],new Article());
-        $list_cate_article = Cate::getListAll();
         $referer = $request->header()['referer'];
-        return $this->fetch('',['act'=>'update','title'=>'修改百科 '.$row_->name,'row_'=>$row_,'referer'=>$referer,'list_cate_article'=>$list_cate_article]);
+        return $this->fetch('',['act'=>'update','title'=>'修改文章 '.$row_->title,'row_'=>$row_,'referer'=>$referer]);
     }
 
     /**
@@ -89,12 +88,7 @@ class ArticleController extends BaseController {
      */
     public function update(Request $request) {
         $data = $request->param();
-//        dump($data);exit;
         $referer = $data['referer'];unset($data['referer']);
-//        $res = $this->validate($data,'ArticleValidate');
-//        if ($res !== true) {
-//            $this->error($res);
-//        }
         $file = $request->file('img');
         $row_ = $this->findById($data['id'],new Article());
         if(!empty($file)){

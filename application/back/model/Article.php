@@ -11,10 +11,6 @@ class Article extends Base {
         $status = [0 => 'deleted', 1 => '正常', 2 => '不显示'];
         return $status[$value];
     }
-    public function getIndexShowAttr($value) {
-        $status = [0 => '否', 1 => '是'];
-        return $status[$value];
-    }
     public static function getListBySchoolId($school_id){
         $row_ = self::where(['school_id'=>$school_id,'st'=>1])->find();
         if($row_){
@@ -33,9 +29,6 @@ class Article extends Base {
         $order = "create_time desc";
         if (!empty($data['name'])) {
             $where['article.name'] = ['like','%'.$data['name'].'%'];
-        }
-        if(!empty($data['index_show'])){
-            $where['index_show'] = $data['index_show'];
         }
         if (!empty($data['paixu'])) {
             $order = 'article.'.$data['paixu'] . ' asc';

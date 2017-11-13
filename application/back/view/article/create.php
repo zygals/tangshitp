@@ -63,24 +63,6 @@
                                 </label>
                             </div>
                         </div>
-
-                        <!--<div class="form-group">
-                            <label for="sOrd" class="col-xs-3 control-label"><span style="color:red;">*&nbsp;&nbsp;</span>列表图：</label>
-                            <div class="col-xs-4 ">
-                                <input type="file" title='' class="form-control  duiqi" id="sOrd" name="img" placeholder=""><span style="color:red">尺寸要求（218*218），大小不超过<?php /*echo floor(config('upload_size')/1024/1024);*/?>M。</span>
-                            </div>
-
-                        </div>-->
-                       <!-- <div class="form-group">
-                            <label for="sOrd" class="col-xs-3 control-label"><span style="color:red;">*&nbsp;&nbsp;</span>详情页图：</label>
-                            <div class="col-xs-4 ">
-                                <input type="file" title='' class="form-control  duiqi" id="sOrd" name="img_big" placeholder=""><span style="color:red">尺寸要求（734*448），大小不超过<?php /*echo floor(config('upload_size')/1024/1024);*/?>M。</span>
-                            </div>
-
-                        </div>-->
-
-
-
                     </div>
 				<div class="text-center">
                     <a href="javascript:history.back()">

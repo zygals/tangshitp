@@ -49,9 +49,6 @@
             <div class="col-xs-1">
                 缩略图
             </div>
-            <div class="col-xs-1">
-                首页
-            </div>
             <div class="col-xs-2">
                 添加时间
 			</div>
@@ -69,25 +66,20 @@
                 <div class="col-xs-1 ">
                     {$row_->id}
                 </div>
-                <div class="col-xs-1 " title="{$row_->name}">
-                    {$row_->name}
+                <div class="col-xs-1 " title="{$row_->title}">
+                    {$row_->title}
                 </div>
                 <div class="col-xs-1 " title="">
                     <a href="__IMGURL__{$row_->img}" target="_blank">
                         <img src="__IMGURL__{$row_->img}" style="height:65px;max-width:175px;"  alt="没有">
                     </a>
                 </div>
-                <div class="col-xs-1 ">
-                    {$row_->index_show}
-                </div>
+
 				<!--<div class="col-xs-1">
                     <a href="__IMGURL__{$row_->img}" target="_blank">
                         <img src="__IMGURL__{$row_->img}" height="55"  alt="没有">
                     </a>
 				</div>-->
-                <div class="col-xs-1">
-                    {$row_->clicks}
-                </div>
                 <div class="col-xs-2">
                     {$row_->create_time}
                 </div>

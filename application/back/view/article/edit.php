@@ -7,6 +7,22 @@
         padding-right:10px;
     }
 </style>
+<script charset="utf-8" src="__EDITOR__/kindeditor.js"></script>
+<script charset="utf-8" src="__EDITOR__/lang/zh-CN.js"></script>
+<script>
+    KindEditor.ready(function (K) {
+        // var editor = K.create('#desc_textarea');
+        var editor = K.create('textarea[name="cont"]',{
+            themeType: 'simple',
+            resizeType: 1,
+            uploadJson: '__EDITOR__/php/upload_json.php',
+            fileManagerJson: '__EDITOR__/php/file_manager_json.php',
+            allowFileManager: true,
+            //下面这行代码就是关键的所在，当失去焦点时执行 this.sync();
+            afterBlur: function(){this.sync();}
+        });
+    });
+</script>
 	<!--弹出添加用户窗口--><form class="form-horizontal" action="{:url($act)}" method="post" enctype="multipart/form-data" >
     <input type="hidden" name="id" value="{$row_->id}">
     <input type="hidden" name="referer" value="{$referer}">
@@ -17,20 +33,10 @@
 				</div>
 				<div class="">
                     <div class="container-fluid">
-                        <div class="form-group">
-                            <label for="sKnot" class="col-xs-3 control-label"><span style="color:red;">*&nbsp;&nbsp;</span>分类：</label>
-                            <div class="col-xs-8">
-                                <select class=" form-control select-duiqi" name="cate_id" id="sel_cate">
-                                    <?php foreach ($list_cate_article as $row_c) { ?>
-                                        <option value="{$row_c['id']}" <?php echo $row_c->id==$row_->cate_id?'selected':'' ?> >{$row_c['name']}</option>
-                                    <?php } ?>
-                                </select>
-                            </div>
-                        </div>
                         <div class="form-group ">
                             <label for="sName" class="col-xs-3 control-label"><span style="color:red;">*&nbsp;&nbsp;</span>标题：</label>
                             <div class="col-xs-8 ">
-                                <input type="text" class="form-control input-sm duiqi" name='name' value="{$row_->name}" id="" placeholder="">
+                                <input type="text" class="form-control input-sm duiqi" name='title' value="{$row_->title}" id="" placeholder="">
                             </div>
                         </div>
 
@@ -49,23 +55,12 @@
                                 <textarea name="cont" id="desc_textarea" style="width:700px;height:300px;">{$row_->cont}</textarea>
                             </div>
                         </div>
-
                         <div class="form-group">
-                            <label for="situation" class="col-xs-3 control-label">首页推荐：</label>
+                            <label for="situation" class="col-xs-3 control-label">排序：</label>
                             <div class="col-xs-8">
                                 <label class="control-label" >
-                                    <input type="radio" name="index_show" <?php echo $row_->index_show=='是'?'checked':''?> class="index_show yes" value="1" >是</label> &nbsp;
-                                <label class="control-label">
-                                    <input type="radio" name="index_show" class="index_show no" value="0" <?php echo $row_->index_show=='否'?'checked':''?> > 否</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="situation" class="col-xs-3 control-label">状态：</label>
-                            <div class="col-xs-8">
-                                <label class="control-label" >
-                                    <input type="radio" name="st" id="" value="1" <?php echo $row_->st=='正常'?'checked':''?>>正常</label> &nbsp;
-                                <label class="control-label">
-                                    <input type="radio" name="st" id="" value="2" <?php echo $row_->st=='不显示'?'checked':''?>> 不显示</label>
+                                    <input type="text" name="sort"  value="{$row_->sort}" >
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -89,7 +84,7 @@
     $(function () {
         $('form').bootstrapValidator({
             fields: {
-                name: {
+                title: {
                     validators:
                         {
                             notEmpty: {
@@ -98,7 +93,7 @@
                         }
 
                 },
-                desc: {
+                cont: {
                     validators:
                         {
                             notEmpty: {
@@ -107,18 +102,6 @@
                         }
 
                 },
-
-                cate_id: {
-                    validators: {
-                        notEmpty: {
-                            message: '请选择分类'
-                        }
-
-
-                    }
-                },
-
-
             }
         });
 
