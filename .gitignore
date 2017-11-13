@@ -1,0 +1,15 @@
+.idea
+composer.lock
+*.log
+thinkphp
+public/upload
+public/editor
+application/config.php
+application/database.php
+.travis.yml
+runtime
+vendor
+think
+build.php
+
+
