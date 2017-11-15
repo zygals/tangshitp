@@ -1,15 +1,15 @@
 <link rel="stylesheet" href="__PUBLIC__home/css/weui.min.css">
+
 <div class="reserve-wrap">
     <img src="__PUBLIC__home/img/order-pic.jpg" alt="">
     <div class="reserve-info">
+        <?php if(!$list_->isEmpty()){?>
         <div class="reserve-list">
             <p class="reserve-left">店　　铺 : </p>
             <select class="reserve-right" id="changeShop">
-                <?php if(!$list_->isEmpty()){?>
                     <?php foreach($list_ as $row){?>
                     <option value="{$row->id}">{$row->name}</option>
                     <?php }?>
-                <?php }?>
             </select>
         </div>
             <div id="shop">
@@ -26,6 +26,7 @@
                     <p class="reserve-right">{$list_[0]->start_time}--{$list_[0]->end_time}</p>
                 </div>
             </div>
+        <?php }?>
     </div>
     <div class="reserve-order">
         <h3 class="reserve-order-title">填写订单信息</h3>
@@ -38,7 +39,7 @@
             </div>
             <div class="reserve-order-list">
                 <p class="reserve-order-left">电　　话 :</p>
-                <input type="text" class="reserve-order-right" name="phone" value="" />
+                <input type="text" class="reserve-order-right" name="mobile" value="" />
             </div>
             <div class="reserve-order-list">
                 <p class="reserve-order-left">预约人数 :</p>
@@ -89,7 +90,6 @@
                 </div>
             </div>
         </div>
-            <a href="{:url('dingdan/index')}" class="submit-reserve"></a>
             <input type="submit" value="提交申请" class="submit-reserve">
         </form>
     </div>

@@ -28,8 +28,7 @@ class SettingController extends BaseController {
     public function save(Request $request) {
         $data = $request->param();
         $file = $request->file('img');
-        $file2 = $request->file('baoming_img_big');
-        $file3 = $request->file('wode_baoming_img');
+        $file2 = $request->file('qr_code');
         $set = new Setting();
         if($set->order('create_time asc')->find()){
             $row_ = $this->findById(1,new Setting());
@@ -49,19 +48,9 @@ class SettingController extends BaseController {
                 if ($size > config('upload_size') ) {
                     $this->error('图片大小超过限定！');
                 }
-                $this->deleteImg($row_->baoming_img_big);
+                $this->deleteImg($row_->qr_code);
                 $arr = $this->dealImg($file2, $path_name);
-                $data['baoming_img_big'] = $arr['save_url_path'];
-            }
-			if(!empty($file3)){//我的报名小图
-                $path_name = 'setting';
-                $size = $file3->getSize();
-                if ($size > config('upload_size') ) {
-                    $this->error('图片大小超过限定！');
-                }
-                $this->deleteImg($row_->wode_baoming_img);
-                $arr = $this->dealImg($file3, $path_name);
-                $data['wode_baoming_img'] = $arr['save_url_path'];
+                $data['qr_code'] = $arr['save_url_path'];
             }
             if($this->saveById(1,new Setting(),$data)){
                 $this->success('编辑成功', 'index', 1);
@@ -88,7 +77,7 @@ class SettingController extends BaseController {
                     $this->error('图片大小超过限定！');
                 }
                 $arr = $this->dealImg($file2, $path_name);
-                $data['baoming_img_big'] = $arr['save_url_path'];
+                $data['qr_code'] = $arr['save_url_path'];
             }
 
 
