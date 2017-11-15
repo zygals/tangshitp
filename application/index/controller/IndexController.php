@@ -12,7 +12,6 @@ class IndexController extends BaseController {
     public function index() {
         $ad = Ad::getList();
         $articles = Article::getList(['paixu' => 'sort']);
-//        dump($ad);
         $redirect_uri = urlencode(config('site_root') . 'index/index/reguser');
         $appid = config('appid');
         return $this->fetch('', compact('ad', 'articles', 'redirect_uri', 'appid'));
