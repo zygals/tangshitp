@@ -27,14 +27,14 @@ class Article extends Base {
     }
     public static function getList($data=[],$where=['ts_article.st' => ['<>', 0]]) {
         $order = "create_time desc";
-        if (!empty($data['name'])) {
-            $where['article.name'] = ['like','%'.$data['name'].'%'];
+        if (!empty($data['title'])) {
+            $where['ts_article.title'] = ['like','%'.$data['title'].'%'];
         }
         if (!empty($data['paixu'])) {
-            $order = 'article.'.$data['paixu'] . ' asc';
+            $order = 'ts_article.'.$data['paixu'] . ' asc';
         }
         if (!empty($data['paixu']) && !empty($data['sort_type'])) {
-            $order ='article.'.$data['paixu'] . ' desc';
+            $order ='ts_article.'.$data['paixu'] . ' desc';
         }
         $list_ = self::where($where)->order($order)->paginate(10);
         foreach($list_ as $k=>$value){
