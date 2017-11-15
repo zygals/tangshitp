@@ -4,29 +4,45 @@ namespace app\index\controller;
 
 use app\back\model\Ad;
 use app\back\model\Article;
+use app\back\model\Order;
+use app\back\model\Setting;
 use think\Request;
 
 class IndexController extends BaseController {
 
-/*
- * 取用户openid第一步：
- * */
-    public function index() {
+    /*
+     * 首页
+     * */
+    public function index2() {
+        $ad = Ad::getList();
+        $articles = Article::getList(['paixu' => 'sort']);
+        $reguser = false;
+        return $this->fetch('index', compact('ad', 'articles', 'reguser'));
+    }
+
+    /*
+   * 查看我的订单列表第一步
+   *
+   * * */
+    public function my_orders1() {
         $redirect_uri = urlencode(config('site_root') . 'index/index/reguser');
         $appid = config('appid');
-        $reguser=true;
-        $redirect='index2';
-        return $this->fetch('', compact('redirect_uri', 'appid','reguser','redirect'));
+        $reguser = true;
+        $redirect = 'my_orders2';
+        return $this->fetch('index', compact('redirect_uri', 'appid', 'reguser', 'redirect'));
+
     }
-/*
- * 首页
- * */
-   public function index2(){
-       $ad = Ad::getList();
-       $articles = Article::getList(['paixu' => 'sort']);
-       $reguser=false;
-       return $this->fetch('index', compact('ad', 'articles','reguser'));
-   }
+
+    /*
+   * 查看我的订单列表第二步
+   *
+   * * */
+    public function my_orders2(Request $request) {
+        $orders = Order::myOrders(session('user_openid'));
+        $setting = Setting::findSets();
+        return $this->fetch('my_orders2', compact('orders', 'setting'));
+    }
+
     /*
      * 文章详情
      *
@@ -37,20 +53,31 @@ class IndexController extends BaseController {
 
         return $this->fetch('', compact('article'));
     }
+
+    /*
+     * 取用户openid第一步：
+     * */
+    public function index() {
+        $redirect_uri = urlencode(config('site_root') . 'index/index/reguser');
+        $appid = config('appid');
+        $reguser = true;
+        $redirect = 'index2';
+        return $this->fetch('', compact('redirect_uri', 'appid', 'reguser', 'redirect'));
+    }
+
     /*
      * 取用户openid第二步：
      * */
     public function reguser(Request $request) {
         $code = $request->get('code');
-        $redirec=$request->get('state');
+        $redirec = $request->get('state');
         $appid = config('appid');
         $appsecret = config('appsecret');
         $ret = $this->https_request("https://api.weixin.qq.com/sns/oauth2/access_token?appid=$appid&secret=$appsecret&code=$code&grant_type=authorization_code");
         $openid = $ret['openid'];
-        session('user_openid',$openid);
-
+        session('user_openid', $openid);
         $f = fopen('user.txt', 'a');
-        fwrite($f, $openid."\n");
+        fwrite($f, $openid . "\n");
         fclose($f);
         $this->redirect($redirec);
     }
@@ -77,8 +104,6 @@ class IndexController extends BaseController {
                 ],
             ]
         ];
-//        dump(json_encode($data_menu2,JSON_UNESCAPED_UNICODE));exit;
-
 
         dump($this->https_post($url, json_encode($data_menu2, JSON_UNESCAPED_UNICODE)));
     }

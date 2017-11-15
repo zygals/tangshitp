@@ -7,7 +7,7 @@ use think\Model;
 class Order extends Base{
 
     public function getStatusAttr($value) {
-        $status = [0 => 'deleted', 1 => '未审核',2=>'已审核'];
+        $status = [0 => 'deleted', 1 => '未审核',2=>'已审核',3=>'用户删除'];
         return $status[$value];
     }
     public static $arrStatus = [1 => '未审核' , 2 => '已审核'];
@@ -39,6 +39,17 @@ class Order extends Base{
             $order = $data['paixu'] . ' desc';
         }
         $list_ = self::where($where)->join('ts_shop','ts_shop.id=ts_order.shop_id')->field($field)->order($order)->paginate(10);
+        return $list_;
+    }
+    /*
+     * 前台的订单列表
+     * zyg
+     * * */
+    public static function myOrders($openid){
+        $where=['ts_order.status'=>['in','1,2'],'ts_order.openid'=>$openid];
+        $field = 'ts_order.*,ts_shop.name shop_name';
+        $order = "create_time desc";
+        $list_ = self::where($where)->join('ts_shop','ts_shop.id=ts_order.shop_id','left')->field($field)->order($order)->select();
         return $list_;
     }
 }
