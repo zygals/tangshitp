@@ -10,12 +10,19 @@ class IndexController extends BaseController {
 
 
     public function index() {
-        $ad = Ad::getList();
-        $articles = Article::getList(['paixu' => 'sort']);
         $redirect_uri = urlencode(config('site_root') . 'index/index/reguser');
         $appid = config('appid');
-        return $this->fetch('', compact('ad', 'articles', 'redirect_uri', 'appid'));
+        $reguser=true;
+        return $this->fetch('', compact('redirect_uri', 'appid','reguser'));
     }
+
+   public function index_(){
+       $ad = Ad::getList();
+       $articles = Article::getList(['paixu' => 'sort']);
+       $reguser=false;
+       echo session('user_openid');
+       return $this->fetch('index', compact('ad', 'articles','reguser'));
+   }
 
     public function read_article(Request $request) {
         $art_id = $request->get('art_id');
@@ -30,9 +37,11 @@ class IndexController extends BaseController {
         $appsecret = config('appsecret');
         $ret = $this->https_request("https://api.weixin.qq.com/sns/oauth2/access_token?appid=$appid&secret=$appsecret&code=$code&grant_type=authorization_code");
         $openid = $ret['openid'];
+        session('user_openid',$openid);
         $f = fopen('user.txt', 'a');
         fwrite($f, $openid."\n");
         fclose($f);
+        $this->redirect('index_');
     }
 
     /*

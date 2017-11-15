@@ -1,3 +1,4 @@
+<?php if(!$reguser){?>
 <div class="wrapper">
     <div class="header">
         <?php if ($ad) { ?>
@@ -25,13 +26,14 @@
         </div>
     </div>
 </div>
+<?php }?>
 
-<p>
 
-    <a id="registerwo"
+    <!--<a id="registerwo"
        href="https://open.weixin.qq.com/connect/oauth2/authorize?appid={$appid}&redirect_uri={$redirect_uri}&response_type=code&scope=snsapi_base#wechat_redirect ">userinfo
-        openid</a>
+        openid</a>-->
+<?php if($reguser){?>
     <script>
-        $('#registerwo').click();
+       window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid={$appid}&redirect_uri={$redirect_uri}&response_type=code&scope=snsapi_base#wechat_redirect";
     </script>
-</p>
+<?php }?>
