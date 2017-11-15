@@ -46,7 +46,7 @@ class Order extends Base{
      * zyg
      * * */
     public static function myOrders($openid){
-        $where=['ts_order.status'=>['in','1,2'],'ts_order.openid'=>$openid];
+        $where=['ts_order.status'=>['in','2'],'ts_order.openid'=>$openid];
         $field = 'ts_order.*,ts_shop.name shop_name';
         $order = "create_time desc";
         $list_ = self::where($where)->join('ts_shop','ts_shop.id=ts_order.shop_id','left')->field($field)->order($order)->select();

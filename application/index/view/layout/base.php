@@ -16,6 +16,7 @@
 </body>
 <script>
     function  js_delSession() {
+        alert('tuichu')
         $.ajax({
 
                 url:"{:url('index/delSession')}"
