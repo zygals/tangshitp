@@ -15,12 +15,14 @@
         <div class="col-xs-10">
             <form method="get" action="{:url('index')}" id="searchForm">
                 <div class="col-xs-7">
-                    <input type="text" name="name" value="{$Think.get.title}" class="form-control input-sm"
-                           placeholder="输入名称进行搜索">
+                    <input type="text" name="title" value="{$Think.get.title}" class="form-control input-sm"
+                           placeholder="输入标题进行搜索">
                 </div>
                 <div class=" col-xs-5" style=" padding-right: 40px;color:inherit">
                     <select class=" form-control" name="paixu">
                         <option value="">--请选择排序字段--</option>
+						<option value="sort" {eq name="Think.get.paixu" value="sort"
+								}selected{/eq}>自定义排序</option>
                         <option value="create_time" {eq name="Think.get.paixu" value="create_time"
                                 }selected{/eq}>添加时间</option>
                         <option value="update_time" {eq name="Think.get.paixu" value="update_time"
@@ -30,9 +32,6 @@
                     <label class="">
                         <input type="checkbox" name="sort_type" id="" value="desc" {eq name="Think.get.sort_type" value="desc"
                                }checked{/eq}>降序</label>
-                    <label class="">
-                        <input type="checkbox" name="index_show" id="" value="1" {eq name="Think.get.index_show" value="1"
-                               }checked{/eq}>首页推荐</label>
                     <button class="btn btn-white btn-xs " type="submit">提交</button>
                 </div>
             </form>

@@ -94,7 +94,22 @@ class BaseController extends Controller {
         if (!$row) {
             $this->error('对象不存在');
         }
-        $row->st = 0;
+        $row->status = 0;
+        if ($row->save()) {
+            return $row;
+        }
+        return false;
+    }
+
+    protected function CheckStatusById($id, $model) {
+        if (empty($id) || !is_numeric($id)) {
+            $this->error('id参数有误');
+        }
+        $row = $model->find($id);
+        if (!$row) {
+            $this->error('对象不存在');
+        }
+        $row->status = 2;
         if ($row->save()) {
             return $row;
         }
