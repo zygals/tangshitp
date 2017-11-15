@@ -26,6 +26,8 @@
                     <p class="reserve-right">{$list_[0]->start_time}--{$list_[0]->end_time}</p>
                 </div>
             </div>
+        <?php }else{?>
+            暂无数据
         <?php }?>
     </div>
     <div class="reserve-order">
