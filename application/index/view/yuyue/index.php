@@ -29,25 +29,26 @@
     </div>
     <div class="reserve-order">
         <h3 class="reserve-order-title">填写订单信息</h3>
+        <form action="{:url($act)}" method="post">
         <div class="reserve-order-list-wrap">
             <div class="reserve-order-list">
-                <input type="hidden" value="" id="shop_id">
+                <input type="hidden" value="{$list_[0]->id}" name="shop_id" id="shop_id">
                 <p class="reserve-order-left">姓　　名 :</p>
                 <input type="text" class="reserve-order-right" name="name" value="" />
             </div>
             <div class="reserve-order-list">
                 <p class="reserve-order-left">电　　话 :</p>
-                <input type="text" class="reserve-order-right" name="mobile" value="" />
+                <input type="text" class="reserve-order-right" name="phone" value="" />
             </div>
             <div class="reserve-order-list">
                 <p class="reserve-order-left">预约人数 :</p>
-                <input type="number" class="reserve-order-right" name="renshu" value="" />
+                <input type="number" class="reserve-order-right" name="reservation" value="" />
             </div>
             <div class="reserve-order-list">
                 <p class="reserve-order-left">预约时间 :</p>
                 <div class="reserve-order-right">
 <!--                    <input type="text" value="2017" > 年-->
-                    <select>
+                    <select name="month">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -61,7 +62,7 @@
                         <option value="11">11</option>
                         <option value="12">12</option>
                     </select> 月
-                    <select>
+                    <select name="day">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -75,18 +76,25 @@
                         <option value="11">11</option>
                         <option value="12">12</option>
                     </select> 日
-                    <select>
-                        <option value="9-12">9-12</option>
-                        <option value="12-14">12-14</option>
-                        <option value="16-18">16-18</option>
-                        <option value="20-22">20-22</option>
+                    <select name="hour1">
+                        <?php for($c;$c<$d;$c++){?>
+                            <option value="{$c}">{$c}</option>
+                        <?php }?>
+                    </select> 时--
+                    <select name="hour2">
+                        <?php for($e;$e<$f;$e++){?>
+                            <option value="{$e+1}">{$e+1}</option>
+                        <?php }?>
                     </select> 时
                 </div>
             </div>
         </div>
+            <a href="{:url('dingdan/index')}" class="submit-reserve"></a>
+            <input type="submit" value="提交申请" class="submit-reserve">
+        </form>
     </div>
 </div>
-<a href="{:url('dingdan/index')}" class="submit-reserve">提交申请</a>
+
 <script>
     $(function () {
     $('#changeShop').change(function(){
@@ -95,12 +103,66 @@
             type:'post',
             data : {'shop_id':$(this).val()},
             success:function(data){
-                    a = '<div class="reserve-list"><p class="reserve-left">地　　址 : </p><p class="reserve-right">'+data.address+'</p> </div> <div class="reserve-list"> <p class="reserve-left">电　　话 : </p> <p class="reserve-right">'+data.phone+'</p> </div> <div class="reserve-list"> <p class="reserve-left">营业时间 : </p> <p class="reserve-right">'+data.start_time+'--'+data.end_time+'</p> </div>';
+                    var a = '<div class="reserve-list"><p class="reserve-left">地　　址 : </p><p class="reserve-right">'+data.address+'</p> </div> <div class="reserve-list"> <p class="reserve-left">电　　话 : </p> <p class="reserve-right">'+data.phone+'</p> </div> <div class="reserve-list"> <p class="reserve-left">营业时间 : </p> <p class="reserve-right">'+data.start_time+'--'+data.end_time+'</p> </div>';
                     $('#shop').html(a);
+                    var sid = $('#changeShop option:selected').attr('value');
+                    $('#shop_id').val(sid);
             }
         });
     })
-        var sid = $('#changeShop option:selected').attr('value');
-        $('#shop_id').val(sid);
+//        $('form').bootstrapValidator({
+//            fields:{
+//                name:{
+//                    validators:{
+//                        notEmpty:{
+//                            message:'不能为空'
+//                        }
+//                    }
+//                },
+//                phone:{
+//                    validators:{
+//                        notEmpty:{
+//                            message:'不能为空'
+//                        }
+//                    }
+//                },
+//                reservation:{
+//                    validators:{
+//                        notEmpty:{
+//                            message:'不能为空'
+//                        }
+//                    }
+//                },
+//                month:{
+//                    validators:{
+//                        notEmpty:{
+//                            message:'不能为空'
+//                        }
+//                    }
+//                },
+//                day:{
+//                    validators:{
+//                        notEmpty:{
+//                            message:'不能为空'
+//                        }
+//                    }
+//                },
+//                hour1:{
+//                    validators:{
+//                        notEmpty:{
+//                            message:'不能为空'
+//                        }
+//                    }
+//                },
+//                hour2:{
+//                    validators:{
+//                        notEmpty:{
+//                            message:'不能为空'
+//                        }
+//                    }
+//                },
+//            }
+//        })
     });
+
 </script>

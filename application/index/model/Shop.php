@@ -12,7 +12,7 @@ class Shop extends Base{
      * 获取店铺的ID名称和图片
      */
     public static function getShop(){
-        $row = self::where('status','1')->select();
+        $row = self::where('status','1')->order('create_time asc')->select();
         return $row;
     }
 
