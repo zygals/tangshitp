@@ -96,14 +96,25 @@ class IndexController extends BaseController {
             'button' => [
                 [
                     'name' => '关于我们',
-                    'type' => 'click',
-                    'key' => 'about_tangshi'
+                    'type' => 'view',
+                    'url' => 'https://huahui.qingyy.net/tangshitp/public/index/index/read_article?art_id=1'
 
                 ],
                 [
-                    'name' => '预约订餐',
-                    'type' => 'view',
-                    'url' => 'https://huahui.qingyy.net/tangshitp/public/index/'
+                    'name' => '预约',
+                    'sub_button'=>[
+                        [
+                            'name' => '我要订餐',
+                            'type' => 'view',
+                            'url' => 'https://huahui.qingyy.net/tangshitp/public/index/'
+                        ],
+                        [
+                            'name' => '查看预约',
+                            'type' => 'view',
+                            'url' => 'https://huahui.qingyy.net/tangshitp/public/index/index/my_orders1'
+                        ],
+                    ],
+
 
                 ],
             ]

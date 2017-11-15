@@ -57,6 +57,7 @@
         <!--  <button onclick="js_delSession()">删除session</button>-->
     <?php }?>
 </div>
+<?php if(!$orders->isEmpty()){?>
 <script>
     function  delMyOrder(obj) {
         if(!confirm('确认删除此订单吗？')){
@@ -81,3 +82,4 @@
 
 
 </script>
+<?php }?>
