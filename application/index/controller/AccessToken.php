@@ -6,8 +6,8 @@ namespace app\index\controller;
 class AccessToken extends BaseController {
 
     public  function getToken(){
-        $appid='wx39d78b79abbc80e3';
-        $appsecret='2cc9125789ee120428a73d7e24140c95';
+        $appid=config('appid');
+        $appsecret=config('appsecret');
         $file = file_get_contents("./access_token.json",true);
         $result = json_decode($file,true);
         if (time() > $result['expires']){

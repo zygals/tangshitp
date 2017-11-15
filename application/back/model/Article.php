@@ -27,6 +27,7 @@ class Article extends Base {
     }
     public static function getList($data=[],$where=['ts_article.st' => ['<>', 0]]) {
         $order = "create_time desc";
+
         if (!empty($data['title'])) {
             $where['ts_article.title'] = ['like','%'.$data['title'].'%'];
         }
@@ -38,8 +39,8 @@ class Article extends Base {
         }
         $list_ = self::where($where)->order($order)->paginate(10);
         foreach($list_ as $k=>$value){
-             if(mb_strlen($value->cont,"UTF8")>40){
-                 $list_[$k]->cont = mb_substr($value->cont, 0, 100, 'utf-8').'...';
+             if(mb_strlen($value->cont,"UTF8")>60){
+                 $list_[$k]->cont = mb_substr($value->cont, 0, 70, 'utf-8').'...';
              }
 
          }
