@@ -18,6 +18,10 @@ class DingdanController extends BaseController {
   public function check_order(){
       return $this->fetch('');
   }
+  public function create(Request $request){
+    $data = $request->param();
+      dump($data);exit;
+  }
 
 
     

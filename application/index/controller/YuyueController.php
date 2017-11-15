@@ -13,7 +13,13 @@ class YuyueController extends BaseController {
      */
     public function index() {
         $list_ = Shop::getShop();
-        return $this->fetch('',['list_'=>$list_]);
+        $start_time = $list_[0]['start_time'];
+        $end_time = $list_[0]['end_time'];
+        $a = explode(':',$start_time);
+        $b = explode(':',$end_time);
+        $c = $a[0];//前台起始预约时间
+        $d = $b[0];//前台结束预约时间
+        return $this->fetch('',['list_'=>$list_,'act'=>'dingdan/create','c'=>$c,'d'=>$d,'e'=>$c,'f'=>$d]);
     }
 
     /**
