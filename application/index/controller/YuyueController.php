@@ -13,6 +13,9 @@ class YuyueController extends BaseController {
      */
     public function index() {
         $list_ = Shop::getShop();
+        if($list_->isEmpty()){
+            $this->error('暂无店铺信息');
+        }
         $start_time = $list_[0]['start_time'];
         $end_time = $list_[0]['end_time'];
         $a = explode(':',$start_time);
