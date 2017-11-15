@@ -28,10 +28,6 @@
 </div>
 <?php }?>
 
-
-    <!--<a id="registerwo"
-       href="https://open.weixin.qq.com/connect/oauth2/authorize?appid={$appid}&redirect_uri={$redirect_uri}&response_type=code&scope=snsapi_base#wechat_redirect ">userinfo
-        openid</a>-->
 <?php if($reguser){?>
     <script>
        window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid={$appid}&redirect_uri={$redirect_uri}&response_type=code&scope=snsapi_base#wechat_redirect";
