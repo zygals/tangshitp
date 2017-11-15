@@ -25,6 +25,9 @@ class IndexController extends BaseController {
    *
    * * */
     public function my_orders1() {
+        if(!empty(session('user_openid'))){
+           $this->redirect('my_orders2');
+        }
         $redirect_uri = urlencode(config('site_root') . 'index/index/reguser');
         $appid = config('appid');
         $reguser = true;
@@ -48,6 +51,7 @@ class IndexController extends BaseController {
      *
      * * */
     public function read_article(Request $request) {
+        echo session('name');
         $art_id = $request->get('art_id');
         $article = Article::read($art_id);
 
@@ -108,5 +112,11 @@ class IndexController extends BaseController {
         dump($this->https_post($url, json_encode($data_menu2, JSON_UNESCAPED_UNICODE)));
     }
 
+    /*
+     * 页面卸载时删除
+     * */
+    public function delSession() {
+        session('user_openid', null);
+    }
 
 }

@@ -9,9 +9,19 @@
     <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
     <title>预约订餐</title>
 </head>
-<body>
+<body onunload="js_delSession()">
 
 {__CONTENT__}
 
 </body>
+<script>
+    function  js_delSession() {
+        $.ajax({
+
+                url:"{:url('index/delSession')}"
+            }
+
+        )
+    }
+</script>
 </html>

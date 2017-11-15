@@ -12,6 +12,12 @@
             <img src="__PUBLIC__home/img/canteen.png" alt="堂食预约">
             <h2>堂食预约</h2>
         </a>
+
+        <a class="nav-wrap" href="{:url('yuyue/index')}">
+            <img src="__PUBLIC__home/img/canteen.png" alt="堂食预约">
+            <h2>堂食预约</h2>
+        </a>
+
     </div>
     <div class="content">
         <h4 class="cont-title">滨登久介绍</h4>
