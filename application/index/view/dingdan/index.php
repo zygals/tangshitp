@@ -20,7 +20,9 @@
         <p class="right-order">{$data['name']}</p>
     </div>
 </div>
-<img src="__IMGURL__{$qr_code->qr_code}" style="width: 70px">
+<div class="qr-code">
+    <img src="__IMGURL__{$qr_code->qr_code}">
+</div>
 <a href="javascript:;" class="pay-btn">
     <h2>长按二维码付押金</h2>
 </a>
