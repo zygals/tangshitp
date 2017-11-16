@@ -48,7 +48,6 @@
         </div>
         <div class="btn-del">
             <button data_order_id="{$order->id}" onclick="delMyOrder(this)">删除</button>
-            <button onclick="delSession()">删除session</button>
         </div>
     </div>
             <?php }?>
