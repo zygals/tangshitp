@@ -31,7 +31,7 @@
     </div>
     <div class="reserve-order">
         <h3 class="reserve-order-title">填写订单信息</h3>
-        <form action="{:url($act)}" method="post" onSubmit="return check();">
+        <form action="{:url($act)}" method="post" onSubmit="check();">
         <div class="reserve-order-list-wrap">
             <div class="reserve-order-list">
                 <input type="hidden" value="{$list_[0]->id}" name="shop_id" id="shop_id">
