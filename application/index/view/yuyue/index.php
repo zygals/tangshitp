@@ -31,7 +31,7 @@
     </div>
     <div class="reserve-order">
         <h3 class="reserve-order-title">填写订单信息</h3>
-        <form action="{:url($act)}" method="post" onSubmit="check();">
+        <form action="{:url($act)}" method="post" id="formSbt">
         <div class="reserve-order-list-wrap">
             <div class="reserve-order-list">
                 <input type="hidden" value="{$list_[0]->id}" name="shop_id" id="shop_id">
@@ -109,28 +109,31 @@
                     var sid = $('#changeShop option:selected').attr('value');
                     $('#shop_id').val(sid);
                 }
-            });
+            })
         })
-        function check() {
+             $('#formSbt').submit(function(e) {
+                 check(e);
+             })
+            function check(e) {
             var phoneReg = /^1[3|4|5|7|8][0-9]\d{8}$/;
             var preg = phoneReg.test($('#mobile').val());
             if ($('#mobile').val() == '') {
                 alert('请输入电话号!');
-                return false;
+                e.preventDefault();
             } else if (!preg) {
                 alert('手机号格式不正确!');
-                return false;
-            }
-            if ($('#name').val() == '') {
+                e.preventDefault();
+            } else if ($('#name').val() == '') {
                 alert('请输入预约人姓名');
-                return false;
-            }
-
-            if ($('#reservation').val() == '') {
+                e.preventDefault();
+            } else if ($('#reservation').val() == '') {
                 alert('请输入预约人数!');
-                return false;
+                e.preventDefault();
+            }else{
+                return true;
             }
-            return true;
         }
-    }
+    })
+
+
 </script>
