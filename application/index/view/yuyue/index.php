@@ -98,38 +98,39 @@
 
 <script>
     $(function () {
-    $('#changeShop').change(function(){
-        $.ajax({
-            url:'{:url("ajax")}',
-            type:'post',
-            data : {'shop_id':$(this).val()},
-            success:function(data){
-                    var a = '<div class="reserve-list"><p class="reserve-left">地　　址 : </p><p class="reserve-right">'+data.address+'</p> </div> <div class="reserve-list"> <p class="reserve-left">电　　话 : </p> <p class="reserve-right">'+data.phone+'</p> </div> <div class="reserve-list"> <p class="reserve-left">营业时间 : </p> <p class="reserve-right">'+data.start_time+'--'+data.end_time+'</p> </div>';
+        $('#changeShop').change(function () {
+            $.ajax({
+                url: '{:url("ajax")}',
+                type: 'post',
+                data: {'shop_id': $(this).val()},
+                success: function (data) {
+                    var a = '<div class="reserve-list"><p class="reserve-left">地　　址 : </p><p class="reserve-right">' + data.address + '</p> </div> <div class="reserve-list"> <p class="reserve-left">电　　话 : </p> <p class="reserve-right">' + data.phone + '</p> </div> <div class="reserve-list"> <p class="reserve-left">营业时间 : </p> <p class="reserve-right">' + data.start_time + '--' + data.end_time + '</p> </div>';
                     $('#shop').html(a);
                     var sid = $('#changeShop option:selected').attr('value');
                     $('#shop_id').val(sid);
+                }
+            });
+        })
+        function check() {
+            var phoneReg = /^1[3|4|5|7|8][0-9]\d{8}$/;
+            var preg = phoneReg.test($('#mobile').val());
+            if ($('#mobile').val() == '') {
+                alert('请输入电话号!');
+                return false;
+            } else if (!preg) {
+                alert('手机号格式不正确!');
+                return false;
             }
-        });
-    })
-    function check(){
-        var phoneReg = /^1[3|4|5|7|8][0-9]\d{8}$/;
-        var preg = phoneReg.test($('#mobile').val());
-        if($('#mobile').val()==''){
-            alert('请输入电话号!');
-            return false;
-        }else if(!preg){
-            alert('手机号格式不正确!');
-            return false;
-        }
-        if($('#name').val()==''){
-            alert('请输入预约人姓名');
-            return false;
-        }
+            if ($('#name').val() == '') {
+                alert('请输入预约人姓名');
+                return false;
+            }
 
-        if($('#reservation').val()==''){
-            alert('请输入预约人数!');
-            return false;
+            if ($('#reservation').val() == '') {
+                alert('请输入预约人数!');
+                return false;
+            }
+            return true;
         }
-        return true;
     }
 </script>
