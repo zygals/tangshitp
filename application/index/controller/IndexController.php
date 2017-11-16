@@ -80,9 +80,9 @@ class IndexController extends BaseController {
         $ret = $this->https_request("https://api.weixin.qq.com/sns/oauth2/access_token?appid=$appid&secret=$appsecret&code=$code&grant_type=authorization_code");
         $openid = $ret['openid'];
         session('user_openid', $openid);
-        $f = fopen('user.txt', 'a');
-        fwrite($f, $openid . "\n");
-        fclose($f);
+//        $f = fopen('user.txt', 'a');
+//        fwrite($f, $openid . "\n");
+//        fclose($f);
         $this->redirect($redirec);
     }
 
