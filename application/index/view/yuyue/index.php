@@ -31,20 +31,20 @@
     </div>
     <div class="reserve-order">
         <h3 class="reserve-order-title">填写订单信息</h3>
-        <form action="{:url($act)}" method="post">
+        <form action="{:url($act)}" method="post" onSubmit="return check();">
         <div class="reserve-order-list-wrap">
             <div class="reserve-order-list">
                 <input type="hidden" value="{$list_[0]->id}" name="shop_id" id="shop_id">
                 <p class="reserve-order-left">姓　　名 :</p>
-                <input type="text" class="reserve-order-right" name="name" value="" />
+                <input type="text" class="reserve-order-right" name="name" value="" id="name"/>
             </div>
             <div class="reserve-order-list">
                 <p class="reserve-order-left">电　　话 :</p>
-                <input type="text" class="reserve-order-right" name="mobile" value="" />
+                <input type="text" class="reserve-order-right" name="mobile" value="" id="mobile" />
             </div>
             <div class="reserve-order-list">
                 <p class="reserve-order-left">预约人数 :</p>
-                <input type="number" class="reserve-order-right" name="reservation" value="" />
+                <input type="number" class="reserve-order-right" name="reservation" value="" id="reservation"/>
             </div>
             <div class="reserve-order-list">
                 <p class="reserve-order-left">预约时间 :</p>
@@ -111,6 +111,27 @@
             }
         });
     })
+    function check(){
+        var phoneReg = /^1[3|4|5|7|8][0-9]\d{8}$/;
+        var preg = phoneReg.test($('#mobile').val());
+        if($('#mobile').val()==''){
+            alert('请输入电话号!');
+            return false;
+        }else if(!preg){
+            alert('手机号格式不正确!');
+            return false;
+        }
+        if($('#name').val()==''){
+            alert('请输入预约人姓名');
+            return false;
+        }
+
+        if($('#reservation').val()==''){
+            alert('请输入预约人数!');
+            return false;
+        }
+        return true;
+    }
 //        $('form').bootstrapValidator({
 //            fields:{
 //                name:{

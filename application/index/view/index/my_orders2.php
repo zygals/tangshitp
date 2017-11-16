@@ -26,25 +26,27 @@
             <p class="info-title">订单编号 : </p>
             <p class="info-num">{$order->code}</p>
         </div>
-        <div class="order-list">
-            <p class="left-order">预约门店 :</p>
-            <p class="right-order">{$order->shop_name}</p>
-        </div>
-        <div class="order-list">
-            <p class="left-order">预约时间 :</p>
-            <p class="right-order">{$order->preset_time}</p>
-        </div>
-        <div class="order-list">
-            <p class="left-order">预约人数 :</p>
-            <p class="right-order">{$order->reservation}人</p>
-        </div>
-        <div class="order-list">
-            <p class="left-order">姓　　名 :</p>
-            <p class="right-order">{$order->name}</p>
-        </div>
-        <div class="order-list">
-            <p class="left-order">电　　话 :</p>
-            <p class="right-order">{$order->mobile}</p>
+        <div class="order-list-wrapper">
+            <div class="order-list">
+                <p class="left-order">预约门店 :</p>
+                <p class="right-order">{$order->shop_name}</p>
+            </div>
+            <div class="order-list">
+                <p class="left-order">预约时间 :</p>
+                <p class="right-order">{$order->preset_time}</p>
+            </div>
+            <div class="order-list">
+                <p class="left-order">预约人数 :</p>
+                <p class="right-order">{$order->reservation}人</p>
+            </div>
+            <div class="order-list">
+                <p class="left-order">姓　　名 :</p>
+                <p class="right-order">{$order->name}</p>
+            </div>
+            <div class="order-list">
+                <p class="left-order">电　　话 :</p>
+                <p class="right-order">{$order->mobile}</p>
+            </div>
         </div>
         <div class="btn-del">
             <button data_order_id="{$order->id}" onclick="delMyOrder(this)">删除</button>
