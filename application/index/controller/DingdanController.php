@@ -46,11 +46,11 @@ class DingdanController extends BaseController {
      */
     public function create(Request $request){
         $data = $request->param();
-        $data['preset_time'] = $data['month'].'月'.$data['day'].'日'.$data['hour1'].'时--'.$data['hour2'].'时';
-        unset($data['month']);
-        unset($data['day']);
-        unset($data['hour1']);
-        unset($data['hour2']);
+//        $data['preset_time'] = $data['month'].'月'.$data['day'].'日'.$data['hour1'].'时--'.$data['hour2'].'时';
+//        unset($data['month']);
+//        unset($data['day']);
+//        unset($data['hour1']);
+//        unset($data['hour2']);
         $data['code'] = time().rand(1000,9999);
         $data['openid'] = session('user_openid');
         $order = new Order;

@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="__PUBLIC__home/css/weui.min.css">
+
+<link rel="stylesheet" href="__PUBLIC__css/calendar.min.css">
 
 <div class="reserve-wrap">
     <img src="__PUBLIC__home/img/order-pic.jpg" alt="">
@@ -48,47 +49,7 @@
             </div>
             <div class="reserve-order-list">
                 <p class="reserve-order-left">预约时间 :</p>
-                <div class="reserve-order-right">
-<!--                    <input type="text" value="2017" > 年-->
-                    <select name="month">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                    </select> 月
-                    <select name="day">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                    </select> 日
-                    <select name="hour1">
-                        <?php for($c;$c<$d;$c++){?>
-                            <option value="{$c}">{$c}</option>
-                        <?php }?>
-                    </select> 时--
-                    <select name="hour2">
-                        <?php for($e;$e<$f;$e++){?>
-                            <option value="{$e+1}">{$e+1}</option>
-                        <?php }?>
-                    </select> 时
-                </div>
+                <input type="text" class="calendars" hours hours-past name="preset_time" placeholder="选择日期时间" style="border: 0;outline: none; font-size:0.16rem; width:80%; ">
             </div>
         </div>
             <input type="submit" value="提交申请" class="submit-reserve">
@@ -137,3 +98,4 @@
 
 
 </script>
+<script src="__PUBLIC__js/calendar.min.js"></script>
