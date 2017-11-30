@@ -25,7 +25,7 @@
             <div class="cont-list-wrap">
                     <a href="{:url('read_article')}?art_id={$art->id}" class="cont-list">
                         <img src="__IMGURL__{$art->img}" alt="">
-                        <p>{$art->cont}</p>
+                        <p>{$art->title}</p>
                     </a>
 
 
