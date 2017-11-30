@@ -101,10 +101,15 @@ class IndexController extends BaseController {
 
                 ],
                 [
+                    'name' => '菜品展示',
+                    'type' => 'click',
+                    'key'  => 'caipinzhanshi'
+                ],
+                [
                     'name' => '预约',
                     'sub_button'=>[
                         [
-                            'name' => '我要订餐',
+                            'name' => '在线预约',
                             'type' => 'view',
                             'url' => 'https://huahui.qingyy.net/tangshitp/public/index/'
                         ],
