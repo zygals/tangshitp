@@ -42,7 +42,6 @@ class Article extends Base {
              if(mb_strlen($value->cont,"UTF8")>60){
                  $list_[$k]->cont = mb_substr($value->cont, 0, 70, 'utf-8').'...';
              }
-
          }
         return $list_;
     }
