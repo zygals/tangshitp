@@ -91,6 +91,7 @@ class IndexController extends BaseController {
      * */
     public function defineMenus() {
         $at = (new AccessToken())->getToken();
+//        $url = "https://huahui.qingyy.net/tangshitp/public/index/index/";
         $url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=$at";
         $data_menu2 = [
             'button' => [
@@ -101,10 +102,16 @@ class IndexController extends BaseController {
 
                 ],
                 [
+                    'name' => '怀石文化',
+                    'type' => 'view',
+                    'url' => 'https://huahui.qingyy.net/tangshitp/public/index/index/read_article?art_id=2'
+
+                ],
+                [
                     'name' => '预约',
                     'sub_button'=>[
                         [
-                            'name' => '我要订餐',
+                            'name' => '线上预约',
                             'type' => 'view',
                             'url' => 'https://huahui.qingyy.net/tangshitp/public/index/'
                         ],
