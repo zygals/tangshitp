@@ -17,8 +17,8 @@ return [
     // +----------------------------------------------------------------------
     // | 模板设置
     // +----------------------------------------------------------------------
-    'appid'=>'wx39d78b79abbc80e3',
-    'appsecret'=>'2cc9125789ee120428a73d7e24140c95',
+    'appid'=>'wx3fc5a4b668faed4d',
+    'appsecret'=>'b1cc1b4dc952ac4776c7a532b66b880f',
      'site_root'=>'https://huahui.qingyy.net/tangshitp/public/',
     'template'               => [
         'layout_on'     =>  true,

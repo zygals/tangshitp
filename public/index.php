@@ -2,7 +2,7 @@
 define("TOKEN", "tangshi_japan");//这里修改为上图中自己配制的Token
 $wechatObj = new wechatCallbackapiTest();
 //接入时使用该验证方法
-$wechatObj->valid();
+//$wechatObj->valid();
 
 class wechatCallbackapiTest
 {
