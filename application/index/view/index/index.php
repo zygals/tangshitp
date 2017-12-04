@@ -21,15 +21,16 @@
     </div>
     <div class="content">
         <h4 class="cont-title">滨登久介绍</h4>
-        <div class="cont-list-wrap">
-            <?php foreach ($articles as $art) { ?>
-                <a href="{:url('read_article')}?art_id={$art->id}" class="cont-list">
-                    <img src="__IMGURL__{$art->img}" alt="">
-                    <p>{$art->cont}</p>
-                </a>
-            <?php } ?>
+        <?php foreach ($articles as $art) { ?>
+            <div class="cont-list-wrap">
+                    <a href="{:url('read_article')}?art_id={$art->id}" class="cont-list">
+                        <img src="__IMGURL__{$art->img}" alt="">
+                        <p>{$art->title}</p>
+                    </a>
 
-        </div>
+
+            </div>
+        <?php } ?>
     </div>
 </div>
 <?php }?>

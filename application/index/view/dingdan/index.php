@@ -1,3 +1,4 @@
+
 <div class="order-wrap">
     <div class="order-list">
         <p class="left-order">订单编号 :</p>
@@ -20,7 +21,11 @@
         <p class="right-order">{$data['name']}</p>
     </div>
 </div>
-<img src="__IMGURL__{$qr_code->qr_code}" style="width: 70px">
+<div class="qr-code">
+    <img src="__IMGURL__{$qr_code->qr_code}">
+</div>
 <a href="javascript:;" class="pay-btn">
     <h2>长按二维码付押金</h2>
 </a>
+<a href="https://huahui.qingyy.net/tangshitp/public/index/" style="margin:0 auto;width: 100%;
+    text-align: center; font-size: 0.16rem"><button style="background-color:#fff;border:0.01rem solid #eee;padding: .05rem .55rem;color: #000;">返回首页</button></a>

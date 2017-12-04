@@ -65,7 +65,7 @@
             <p class="right-order">15168535495</p>
         </div>
         <div class="btn-del">
-            <button>删除</button>
+            <button class="">删除</button>
         </div>
     </div>
 </div>

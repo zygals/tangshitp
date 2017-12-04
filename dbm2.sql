@@ -11,3 +11,4 @@ update_time int default 0,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='网站相关设置';
 alter table ts_menu_admin modify is_show_to_shop tinyint  default 1 comment '是否给商户看';
+

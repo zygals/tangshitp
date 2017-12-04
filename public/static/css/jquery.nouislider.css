@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 /*	General CSS resets;
  *		The target itself is not affected, allowing
  *		the remainder of the document to use an
  *		alternate box-sizing model;
  *		Support for box-sizing is wide spread:
  *		http://caniuse.com/#search=box-sizing
+=======
+/*	General CSS resets;
+ *		The target itself is not affected, allowing
+ *		the remainder of the document to use an
+ *		alternate box-sizing model;
+ *		Support for box-sizing is wide spread:
+ *		http://caniuse.com/#search=box-sizing
+>>>>>>> 8a93cb815d0a90f18b3dc714012194d9ef0e2383
  */
 
 .noUi-target * {
@@ -21,9 +30,15 @@
 	padding-top: 8px;
 	display: block;
 }
+<<<<<<< HEAD
 /*	Main slider bar;
  *		Standard styles no longer incorrectly force a
  *		width or height on the slider.
+=======
+/*	Main slider bar;
+ *		Standard styles no longer incorrectly force a
+ *		width or height on the slider.
+>>>>>>> 8a93cb815d0a90f18b3dc714012194d9ef0e2383
  */
 
 .noUi-base {
@@ -36,9 +51,15 @@
 	
 	z-index: 1;
 }
+<<<<<<< HEAD
 /*	Handles + active state;
  *		The :after pseudo-element wont inherit
  *		box-sizing, so it needs to applied manually.
+=======
+/*	Handles + active state;
+ *		The :after pseudo-element wont inherit
+ *		box-sizing, so it needs to applied manually.
+>>>>>>> 8a93cb815d0a90f18b3dc714012194d9ef0e2383
  */
 
 .noUi-handle {
@@ -52,7 +73,11 @@
 }
 }
 .noUi-active {
+<<<<<<< HEAD
 	background: #E9E9E9;
+=======
+	background: #E9E9E9;
+>>>>>>> 8a93cb815d0a90f18b3dc714012194d9ef0e2383
 	outline: none;
 }
 .noUi-active:after {
@@ -64,9 +89,15 @@
 	height: 100%;
 	/*border: 1px solid #DDD;*/
 }
+<<<<<<< HEAD
 /*	Styling-only classes;
  *		Structured to prevent double declarations
  *		for various states of the slider.
+=======
+/*	Styling-only classes;
+ *		Structured to prevent double declarations
+ *		for various states of the slider.
+>>>>>>> 8a93cb815d0a90f18b3dc714012194d9ef0e2383
  */
 
 .noUi-connect {
@@ -87,9 +118,15 @@
 .slider-info .noUi-connect {
 	background: #8F44AD;
 }
+<<<<<<< HEAD
 /*	Functional styles for handle positioning;
  *		Note that the origins have z-index 0, the base has
  *		z-index 1; This fixes a bug where borders become invisible.
+=======
+/*	Functional styles for handle positioning;
+ *		Note that the origins have z-index 0, the base has
+ *		z-index 1; This fixes a bug where borders become invisible.
+>>>>>>> 8a93cb815d0a90f18b3dc714012194d9ef0e2383
  */
 
 .noUi-origin {
@@ -106,9 +143,15 @@
 .noUi-z-index {
 	z-index: 10;
 }
+<<<<<<< HEAD
 /*	Adaptations for the vertical slider;
  *		Some standard styles have been extended to keep
  *		exceptions for the vertical slider as minimal as possible.
+=======
+/*	Adaptations for the vertical slider;
+ *		Some standard styles have been extended to keep
+ *		exceptions for the vertical slider as minimal as possible.
+>>>>>>> 8a93cb815d0a90f18b3dc714012194d9ef0e2383
  */
 
 .noUi-vertical {
@@ -122,12 +165,21 @@
 .noUi-vertical .noUi-handle {
 	margin: -9px 0 0 -4px;
 }
+<<<<<<< HEAD
 /*	Various alternate slider states;
  *		Support for transition is widely available,
  *		Only IE7, IE8 and IE9 will ignore these rules.
  *		Since this is merely a progressive enhancement,
  *		this is no problem at all.
  *		http://caniuse.com/#search=transition
+=======
+/*	Various alternate slider states;
+ *		Support for transition is widely available,
+ *		Only IE7, IE8 and IE9 will ignore these rules.
+ *		Since this is merely a progressive enhancement,
+ *		this is no problem at all.
+ *		http://caniuse.com/#search=transition
+>>>>>>> 8a93cb815d0a90f18b3dc714012194d9ef0e2383
  */
 
 .noUi-target[disabled] .noUi-base {

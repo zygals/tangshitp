@@ -116,7 +116,7 @@ class ArticleController extends BaseController {
      */
     public function delete(Request $request) {
         $data = $request->param();
-        if( $this->deleteStatusById($data['id'],new Article())){
+        if( $this->deleteStById($data['id'],new Article())){
             $this->success('删除成功', $data['url'], '', 1);
         }else{
             $this->error('删除失败', $data['url'], '', 3);

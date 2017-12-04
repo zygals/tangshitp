@@ -80,9 +80,9 @@ class IndexController extends BaseController {
         $ret = $this->https_request("https://api.weixin.qq.com/sns/oauth2/access_token?appid=$appid&secret=$appsecret&code=$code&grant_type=authorization_code");
         $openid = $ret['openid'];
         session('user_openid', $openid);
-        $f = fopen('user.txt', 'a');
-        fwrite($f, $openid . "\n");
-        fclose($f);
+//        $f = fopen('user.txt', 'a');
+//        fwrite($f, $openid . "\n");
+//        fclose($f);
         $this->redirect($redirec);
     }
 
@@ -102,16 +102,26 @@ class IndexController extends BaseController {
 
                 ],
                 [
+<<<<<<< HEAD
                     'name' => '怀石文化',
                     'type' => 'view',
                     'url' => 'https://huahui.qingyy.net/tangshitp/public/index/index/read_article?art_id=2'
 
+=======
+                    'name' => '菜品展示',
+                    'type' => 'click',
+                    'key'  => 'caipinzhanshi'
+>>>>>>> fa5732d0e0a10675d2ffdbc580e0bead5f9e14f3
                 ],
                 [
                     'name' => '预约',
                     'sub_button'=>[
                         [
+<<<<<<< HEAD
                             'name' => '线上预约',
+=======
+                            'name' => '在线预约',
+>>>>>>> fa5732d0e0a10675d2ffdbc580e0bead5f9e14f3
                             'type' => 'view',
                             'url' => 'https://huahui.qingyy.net/tangshitp/public/index/'
                         ],
