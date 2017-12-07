@@ -21,13 +21,12 @@
     </div>
     <div class="content">
         <h4 class="cont-title">滨登久介绍</h4>
-        <?php foreach ($articles as $art) { ?>
+        <?php foreach ($articles as $k=>$art) { if($art->id<3)continue;?>
             <div class="cont-list-wrap">
                     <a href="{:url('read_article')}?art_id={$art->id}" class="cont-list">
                         <img src="__IMGURL__{$art->img}" alt="">
-                        <p>{$art->title}</p>
+                        <p style="font-size:18px;font-weight: bold;">{$art->title}</p>
                     </a>
-
 
             </div>
         <?php } ?>
