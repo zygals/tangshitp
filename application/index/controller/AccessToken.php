@@ -26,6 +26,7 @@ class AccessToken extends BaseController {
     private function getNewToken($appid,$appsecret){
         $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={$appid}&secret={$appsecret}";
         $access_token_Arr =   $this->https_request($url);
+        //dump($access_token_Arr);
         return $access_token_Arr['access_token'];
     }
 
